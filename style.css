@@ -1,0 +1,155 @@
+/* Full viewport centering */
+body {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center; /* vertical centering */
+  height: 100vh; /* full viewport height */
+  margin: 0; /* remove default margin */
+  font-family: "Inter Tight", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Container with fixed width */
+.container {
+  width: 328px; /* fixed width */
+  text-align: left; /* center text inside */
+}
+
+p {
+  color: #000;
+  font-family: "Inter Tight";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h1 {
+  color: #000;
+  font-family: "Inter Tight";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+h2 {
+  color: #000;
+  font-family: "Inter Tight";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+a {
+  color: #233918;
+  font-family: "Inter Tight";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.inter-tight-<uniquifier > {
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.h2-wrapper {
+  display: flex;
+  align-items: center; /* vertically center SVG and text */
+  gap: 8px; /* space between SVG and heading */
+}
+
+.circle-icon {
+  width: 10px; /* adjust size as needed */
+  height: 10px;
+}
+
+.wrapper-1 {
+  display: flex;
+  width: 328px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.spacer {
+  margin-bottom: 32px;
+}
+
+.pulse {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  animation: pulse 1s infinite ease-in-out;
+  vertical-align: middle; /* keeps it centered with text */
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6; /* fades slightly */
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+a.contact-link {
+  color: #233918;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.contact-link:hover {
+  text-decoration: underline;
+}
+
+.seed-link {
+  color: #233918; /* your link color */
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s ease; /* smooth fade */
+}
+
+.seed-link:hover {
+  opacity: 0.6; /* change to 60% opacity on hover */
+}
+
+.h1-link {
+  color: #000; /* same as h1 */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: normal;
+  transition: opacity 0.3s ease, text-decoration 0.3s ease;
+  text-decoration-skip-ink: none; /* ensure underline is drawn */
+}
+
+.h1-link:hover {
+  opacity: 0.6;
+  text-decoration-line: underline; /* explicitly underline */
+  text-decoration-style: dashed; /* dashed line */
+  text-decoration-thickness: 1.5px; /* optional, makes it more visible */
+}
+
+::selection {
+  background-color: #fbff00; /* the highlight color */
+}
