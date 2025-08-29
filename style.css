@@ -127,6 +127,7 @@ a.contact-link:hover {
   font-weight: 600;
   text-decoration: none;
   transition: opacity 0.3s ease; /* smooth fade */
+  margin-left: 1px;
 }
 
 .seed-link:hover {
@@ -151,5 +152,10 @@ a.contact-link:hover {
 }
 
 ::selection {
-  background-color: #fbff00; /* the highlight color */
+  background-color: #fbff00; /* highlight color */
+}
+
+.image-margin {
+  margin-left: 8px;
+  width: 10px;
 }
