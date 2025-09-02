@@ -62,10 +62,10 @@ footer {
   color: #666;
 }
 
-.inter-tight-<uniquifier > {
+.inter-tight {
   font-family: "Inter Tight", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 400;
   font-style: normal;
 }
 
