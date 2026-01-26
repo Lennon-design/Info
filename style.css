@@ -1,23 +1,76 @@
-/* Full viewport centering */
+/* Desktop: centered layout */
 body {
   display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center; /* vertical centering */
-  height: 100vh; /* full viewport height */
-  margin: 0; /* remove default margin */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
   font-family: "Inter Tight", sans-serif;
   background-color: #f9f9f9;
-  color: #333;
+  color: #272727;
+  position: relative;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.container-body {
+  width: 334px;
+  text-align: left;
+}
+
+.footer-section {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 334px;
+
+  padding-bottom: 48px;
+}
+
+/* Mobile breakpoints */
+@media (max-width: 768px) {
+  body {
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .main-content {
+    padding-top: 48px;
+    align-items: flex-start;
+  }
+
+  .footer-section {
+    bottom: 48px;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 48px;
+  }
+
+  .footer-section {
+    bottom: 48px;
+  }
 }
 
 /* Container with fixed width */
-.container {
-  width: 328px; /* fixed width */
+.container-body {
+  width: 334px; /* fixed width */
   text-align: left; /* center text inside */
+  align-items: center;
 }
 
 p {
-  color: #000;
+  color: #272727;
   font-family: "Inter Tight";
   font-size: 12px;
   font-style: normal;
@@ -26,7 +79,7 @@ p {
 }
 
 h1 {
-  color: #000;
+  color: #272727;
   font-family: "Inter Tight";
   font-size: 16px;
   font-style: normal;
@@ -35,7 +88,7 @@ h1 {
 }
 
 h2 {
-  color: #000;
+  color: #272727;
   font-family: "Inter Tight";
   font-size: 12px;
   font-style: normal;
@@ -43,8 +96,30 @@ h2 {
   line-height: normal;
 }
 
+h2-footer {
+  color: #8e8e8e;
+  font-family: "Inter Tight";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.tag {
+  color: #272727;
+  font-family: "Inter Tight";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: 1px solid #272727;
+  border-radius: 100px;
+  padding: 4px 8px; /* top/bottom left/right */
+  display: inline-block;
+}
+
 a {
-  color: #233918;
+  color: #272727;
   font-family: "Inter Tight";
   font-size: 12px;
   font-style: normal;
@@ -59,7 +134,7 @@ a:hover {
 footer {
   margin-top: 3rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #8e8e8e;
 }
 
 .inter-tight {
@@ -70,6 +145,12 @@ footer {
 }
 
 .h2-wrapper {
+  display: flex;
+  align-items: center; /* vertically center SVG and text */
+  gap: 2px; /* space between SVG and heading */
+}
+
+.h2-wrapper-8 {
   display: flex;
   align-items: center; /* vertically center SVG and text */
   gap: 8px; /* space between SVG and heading */
@@ -112,18 +193,8 @@ footer {
   }
 }
 
-a.contact-link {
-  color: #233918;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-a.contact-link:hover {
-  text-decoration: underline;
-}
-
 .seed-link {
-  color: #233918; /* your link color */
+  color: #1c3a13; /* your link color */
   font-weight: 600;
   text-decoration: none;
   transition: opacity 0.3s ease; /* smooth fade */
@@ -131,31 +202,154 @@ a.contact-link:hover {
 }
 
 .seed-link:hover {
-  opacity: 0.6; /* change to 60% opacity on hover */
+  opacity: 0.5; /* change to 60% opacity on hover */
 }
 
 .h1-link {
-  color: #000; /* same as h1 */
+  color: #272727; /* same as h1 */
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
   line-height: normal;
-  transition: opacity 0.3s ease, text-decoration 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease;
   text-decoration-skip-ink: none; /* ensure underline is drawn */
 }
 
 .h1-link:hover {
-  opacity: 0.6;
+  opacity: 0.5;
+  text-decoration-line: underline; /* explicitly underline */
+  text-decoration-style: dashed; /* dashed line */
+  text-decoration-thickness: 1.5px; /* optional, makes it more visible */
+}
+
+.h2-link {
+  color: #272727;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: normal;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease;
+  text-decoration-skip-ink: none; /* ensure underline is drawn */
+}
+
+.h2-link-footer {
+  color: #8e8e8e;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: normal;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease;
+  text-decoration-skip-ink: none; /* ensure underline is drawn */
+}
+
+.h2-link:hover {
+  opacity: 0.5;
+  text-decoration-line: underline; /* explicitly underline */
+  text-decoration-style: dashed; /* dashed line */
+  text-decoration-thickness: 1.5px; /* optional, makes it more visible */
+}
+
+.h2-link-footer:hover {
+  opacity: 0.5;
   text-decoration-line: underline; /* explicitly underline */
   text-decoration-style: dashed; /* dashed line */
   text-decoration-thickness: 1.5px; /* optional, makes it more visible */
 }
 
 ::selection {
-  background-color: #fbff00; /* highlight color */
+  background-color: #feff61; /* highlight color */
 }
 
 .image-margin {
   margin-left: 8px;
   width: 10px;
+}
+
+.pill {
+  border: 1px solid #272727;
+  border-radius: 100px;
+  padding: 4px 8px; /* top/bottom left/right */
+  display: inline-block;
+}
+
+.seed-pill {
+  border: 1px solid #1c3a13;
+  border-radius: 100px;
+  padding: 4px 8px; /* top/bottom left/right */
+  display: inline-block;
+}
+
+.padding-16 {
+  margin-bottom: 16px;
+}
+
+.padding-8 {
+  margin-bottom: 8px;
+}
+
+/* Light mode color overrides */
+body.light-mode {
+  background-color: #272727;
+  color: #f9f9f9;
+}
+
+body.light-mode p,
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode a,
+body.light-mode .tag,
+body.light-mode .h1-link,
+body.light-mode .h2-link {
+  color: #f9f9f9;
+}
+
+body.light-mode .h2-link-footer {
+  color: #8e8e8e;
+}
+
+body.light-mode .seed-link {
+  color: #e9f0ca;
+}
+
+body.light-mode .seed-pill {
+  color: #e9f0ca;
+  border-color: #e9f0ca;
+}
+
+body.light-mode .tag,
+body.light-mode .pill {
+  border-color: #f9f9f9;
+}
+
+body.light-mode hr {
+  border-color: #8e8e8e !important;
+}
+
+body.light-mode .footer-section {
+}
+
+body.light-mode .loader svg circle,
+body.light-mode .loader svg rect,
+body.light-mode .loader svg polygon {
+  fill: #e9f0ca;
+}
+
+body.light-mode ::selection {
+  background-color: #36aeb0;
+}
+
+/* Light mode cursors */
+body.light-mode {
+  cursor: url(images/Pointer-light.svg), auto;
+}
+
+body.light-mode a,
+body.light-mode button {
+  cursor: url(images/Click-light.svg), pointer;
 }

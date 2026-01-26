@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <link rel="icon" href="images/favicon-main.svg" type="image/x-icon" />
+    <link rel="icon" href="images/favicon-teal.svg" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lennon Fanning</title>
@@ -13,70 +13,216 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="container">
-      <h1>
-        <a href="mailto:mail@lennonfanning.info?subject=*" class="h1-link"
-          >Lennon Fanning<img
-            src="images/Lennon-email-outbound.svg"
-            class="image-margin"
-          />
-        </a>
-      </h1>
-      <h2 class="spacer">Graphic, Web, Brand, and Product Designer</h2>
-      <p>
-        Lennon is someone who pushes himself to explore a concept as far as
-        it’ll go.
-      </p>
-      <p class="spacer">
-        He’s a creative strategist, visual designer, and artist with roots in
-        psychology and cultural studies. He’s focused on well-curated design,
-        often involving inspirations from illustrative folk art, the natural
-        world, and society at large. Leveraging his breadth of knowledge,
-        expertise in modern cultural, and background in human behavior, he
-        elevates work through strategic and compelling storytelling with strong
-        concepts and originality.
-      </p>
-      <h2>Work</h2>
-      <hr style="border: 0.75px solid black" />
-      <div class="h2-wrapper">
-        <img src="images/Seed-Favicon.svg" />
-        <h2 style="color: #233918">Seed</h2>
-      </div>
-      <div class="h2-wrapper">
-        <img src="images/Object-shop-favicon.svg" />
-        <h2>Object—Shop</h2>
-      </div>
-      <div class="h2-wrapper">
-        <img src="images/Conquer-favicon.svg" />
-        <h2 style="color: #d05000">Conquer App</h2>
-      </div>
-      <div class="h2-wrapper">
-        <img src="images/finetooth-favicon.svg" />
-        <h2>Finetooth Dev</h2>
-      </div>
-      <div class="h2-wrapper">
-        <img src="images/public-parking-favicon.svg" />
-        <h2 style="color: #b52519">Public Parking</h2>
-      </div>
-      <div class="h2-wrapper">
-        <img src="images/the-feels-favicon.svg" />
-        <h2>The Feels</h2>
-      </div>
-      <div class="spacer"></div>
-      <div class="h2-wrapper">
-        <img
-          src="images/Currently-working-favicon.svg"
-          class="pulse"
-          alt="online indicator"
-        />
-        <h2>
-          Currently a Brand Designer at
-          <a href="https://seed.com" target="_blank" class="seed-link"
-            >Seed <img src="images/seed-new-tab.svg"
-          /></a>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+    body {
+      cursor: url(images/Pointer.svg), auto;
+      transition: background-color 0.3s ease, color 0.3s ease; /* smooth transition */
+    }
+    a,
+    button {
+      cursor: url(images/Click.svg), pointer;
+    }
+
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(197, 197, 197, 0.2);
+      backdrop-filter: blur(24px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    .loaded .loader {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader svg {
+      display: none;
+      position: absolute;
+    }
+
+    .loader svg.active {
+      display: block;
+    }
+  </style>
+  <body onclick="toggleTheme()">
+    <div class="loader">
+      <svg
+        class="active loading-graphic"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <circle cx="50" cy="50" r="40" fill="#1C3A13" />
+      </svg>
+
+      <svg
+        class="loading-graphic"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <rect x="25" y="25" width="50" height="50" fill="#1C3A13" />
+      </svg>
+
+      <svg
+        class="loading-graphic"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <polygon points="50,10 90,90 10,90" fill="#1C3A13" />
+      </svg>
+    </div>
+    <div class="main-content">
+      <div class="container-body">
+        <h1 style="padding-top: 16px">Lennon Fanning</h1>
+        <h2 style="padding-top: 8px">
+          Brand, growth, graphic, & product designer
         </h2>
+        <p style="padding-top: 32px">
+          Lennon is an adaptable and effective multifaceted designer capable of
+          shipping finished products efficiently across channels.
+        </p>
+        <p style="padding-top: 16px">
+          He’s an artist with roots in psychology and cultural studies. He’s
+          focused on well-curated design, often involving inspirations from
+          illustrative folk art, the natural world, and society at large.
+          Leveraging his breadth of knowledge, expertise in modern cultural, and
+          background in human behavior, he elevates work through strategic and
+          compelling storytelling with a unique perspective and originality.
+        </p>
+        <div style="display: flex; align-items: center; padding-top: 32px">
+          <div style="padding-right: 8px">
+            <img
+              src="images/Currently-working-favicon.svg"
+              class="pulse"
+              style="margin-top: -3px"
+              alt="online indicator"
+            />
+          </div>
+          <h2>
+            Lennon is currently a
+            <span style="padding-right: 2px; padding-left: 2px;">
+            <div class="pill">Brand Designer</div>
+            </span>
+            at
+            <span style="padding-right: 2px; padding-left: 2px;">
+            <a href="https://seed.com" target="_blank" class="seed-link">
+              <div class="seed-pill"><img src="images/Seed-lockup.svg" /></div>
+            </a>
+            </span>
+          </h2>
+        </div>
+
+        <!--
+      <h2 style="padding-top: 32px; padding-bottom: 8px">Work</h2>
+      <hr style="border: 0.75px solid #272727" />
+      <div class="padding-16"></div>
+      <div style="padding-left: 32px; padding-bottom: 8px">
+        <img src="images/Seed-lockup.svg" />
+      </div>
+      <div
+        style="
+          width: 335px;
+          height: 264px;
+          border: 1px solid #1c3a13;
+          border-radius: 32px;
+          overflow: hidden;
+        " >
+        *Video will go here*
+      </div>
+      <div style="padding-left: 32px; padding-top: 8px">
+        <p class="tag" style="padding-right: 8px">Brand Design</p>
+        <p class="tag">Email Design</p>
+        <p class="tag">Graphic Design</p>
+      </div>
+      -->
+        <p style="padding-top: 32px">
+          Examples of work and resume available upon request.
+        </p>
+        <div style="padding-bottom: 160px"></div>
+    </div>
+
+      <!--Footer-->
+      <footer class="footer-section">
+    <div class="container-body">
+      <hr style="border: 0.75px solid #8e8e8e" />
+      <div style="padding-bottom: 16px"></div>
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <div style="display: flex; gap: 8px; align-items: center">
+          <div>
+            <img style="margin-top: 3px" src="images/mail-icon.svg" ; />
+          </div>
+          <div>
+            <h2>
+              <a
+                href="mailto:mail@lennonfanning.info?subject=*"
+                class="h2-link-footer"
+              >
+                mail@lennonfanning.info
+              </a>
+            </h2>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center">
+          <div><img style="margin-top: -4px" src="images/oakland.svg" /></div>
+          <div><h2 style="color: #8e8e8e">Oakland</h2></div>
+        </div>
       </div>
     </div>
+    </footer>
+    <script>
+      let currentGraphic = 0;
+      const graphics = document.querySelectorAll(".loading-graphic");
+
+      const cycleInterval = setInterval(function () {
+        graphics[currentGraphic].classList.remove("active");
+        currentGraphic = (currentGraphic + 1) % graphics.length;
+        graphics[currentGraphic].classList.add("active");
+      }, 500);
+
+      setTimeout(function () {
+        clearInterval(cycleInterval);
+        document.body.classList.add("loaded");
+
+        setTimeout(function () {
+          document.querySelector(".loader").remove();
+        }, 1000);
+      }, 3000);
+      // Theme toggle function
+
+  // Theme toggle function
+  function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+    
+    // Swap Seed logo
+    const seedLogo = document.querySelector('.seed-pill img');
+    if (document.body.classList.contains('light-mode')) {
+      seedLogo.src = 'images/Seed-lockup-light.svg';
+    } else {
+      seedLogo.src = 'images/Seed-lockup.svg';
+    }
+  }
+    </script>
   </body>
 </html>
