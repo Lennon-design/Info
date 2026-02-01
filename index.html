@@ -167,18 +167,28 @@
       </div>
     </div>
     </footer>
-    <script>let scene, camera, renderer, dots = [];
+    <!-- Hidden SVG for path detection -->
+<svg id="temp-svg" viewBox="0 0 412.91 333.37" xmlns="http://www.w3.org/2000/svg" style="position: absolute; visibility: hidden;">
+    <path id="horse-path" d="m145.8 232.12c-12.3-6.08-5.52-12.59-15.55-7.22-3.89 2.08-7.71 7.9-12.01 9.46l-22.84 8.28c-2.65.96-5.4 2.82-7.82 4.21l-12.08 6.94c-9.92 5.7-13.99 3.58-21.83 9.04l-5.94 4.13c-4.3 2.99-8.92 5.17-12.98 8.28l-7.92 6.06c-2.3 1.76-4.17 4.51-4.84 7.41l-3.38 14.61c-2.15 9.29 8.04 16.81 3.56 27.49-1.2 2.87-4.46 3.05-7.01 1.95-3.95-1.7-6.78-4.22-8.53-8.11l-3.43-7.64c-2.05-4.57-1.31-10.6-2.83-15.53-.75-2.44-.18-4.86.27-7.33 1.35-7.5 3.93-11.93 10.41-16 2.29-1.44 5.05-6.31 7.22-8.15l5.56-4.7c4.96-4.2 9.09-8.83 13.14-14 4.04-5.17 3.72-10.99 7.01-12.42 11.28-4.9 14.74-1.34 23.06-11.54 8.41-10.31 6-11.1 8.41-23.97 2.71-14.47 3.81-13.16 9.22-24.35 3.07-6.36 4.37-13.61 8.1-19.54 3.91-6.22 17.21-15.69 17.94-17.95.87-2.72-3.81-2.85-5.51-2.59-4.93.75-6.71 2.81-9.58 6.31-3.06 3.73-9.18 6.3-10.02 11.71s-3.17 7.86-6.65 11.65c-3.82 4.16-4.83 11.64-17.87 24.77-9.32 9.38-2.73 8.23-15.96 15.64l-8.34-.99c-.88-.1-2.84-1.35-2.9-2.18-.26-3.65 6.6-5.93 5.8-11.15-.57-3.72-.1-6.24.71-9.78 1.2-5.22 2.17-10.64 3.11-16.16l1.32-7.73c.27-1.56 2.25-4.88 2.24-6.45l-.1-9.24c-.02-1.63-7.21-6.1-5.21-10.61 2.37-5.37 7.14-10.81 11.39-15.18 5.22-5.38 3.47-9.48 8.83-17.34s9.88-16.73 14.46-25.39c1.09-2.06 6.36-3.92 8.56-3.42l4.27.97c7.09-.51 19.22 4.35 22.35 11.63 4.42 10.26 9.44 15.96 11.2 21.89.97 3.27-.86 8.35.77 11.47 1.87 3.58 5.19 7.5 8.69 9.54 5.14 3.01 25.01.41 35.02 1.53l11.96 1.34c4.74.53 7.22-4.78 8.39-8.48 4.66-14.75 13.05-14.29 7.32-29.82 1.64-6.94 4.36-7.35 11.32-10.04 1.84-.71.71-5.15-.77-6.62-5.95-5.91.42-9.46-16.23-11.03-22.66-2.14-14.45-7.95-27.94-1.21-.77.39-2.63.94-3.35.92s-1.51-.96-2.45-2.11c-4.58-5.63 1.64-5.95-9.2-11.87l-6.95-3.8c-.96-.52-1.29-4.06-1.13-4.97l6.9.71 6.41-5.39c.81-.68.87-3.51.57-4.68-1.26-4.91-2.84-3.32-8.74-6.18-1-.49-1.12-3.97-.23-4.65 2.49-1.91 8.45-4.01 11.53-3.04 3.41 1.08 8.17 2.98 10.6.28l6.2-6.87c2.09-2.32 4.3-4.3 6.94-5.88l9.46-5.62c1.29.03 4.25.44 5.49.23l9.66-1.62c6.45 2.58 12.5 2.87 19.32 3.29l15.97.98c7.94.49 15.43 5.07 22.92 7.49 10.99 3.55.59 4.99 13.02 14.28 3.7 2.76 6.76 6.99 9.67 11.01l9.84 4.03c7.19 14.56 14.22 6.36 9.68 17.75-.68 1.72-1.12 3.26-1.84 5.67-3.76 1.38-9.61 2.24-13.76.79l-6.29-2.19c-3.44-1.2-5.94-1.68-10.24-.62 3.07 5.18 5.48 8.41 8.68 12.41l5.8 7.25c1.9 2.37 4.77 4.38 7.47 5.72l8.06 3.99c12.42 6.14 17.22 17.11 20.78 29.24.77 2.63 4.78 7.5 7.51 8.05 3.86.62 7.93-3.79 10.45-6.59 4.39-4.86 6.35-10.47 8.61-16.73 2.68-7.44 14.16-13.15 20.05-6.64s10.52 13.36 18.57 17.77c3.24 1.77 6.8 3.97 10.19 5.32 6.32 2.52 8.53 7.9 10.73 13.65 1.65 4.31 3.01 7.94 3.03 12.95.01 2.91 1.85 7.01 1.63 9.8-.32 4.05-1.26 8.81-2.76 12.01l-2.24 4.78-5.89-1.64c-3.69-4.42-6.72-9.76-8.23-15.21-1.62-5.86 5.87-13.38-6.3-22.05l-12.94-9.22c-3.9-2.78-9.29-1.95-11.53 2.34-2.01 3.86-4.26 7.93-5.79 11.94-5.1 13.36-6.44 21.99-18.26 30.83l-3.35 5.52-7.16 1.62c-6.98 1.58-21.47 8.6-22.6 11.7l-5.4 14.85c-2.18 5.98-10.61 7.94-15.73 11.74s-9.8 7.45-14.84 11.65c-1.7 1.42-4.47 8.38-12.25 10.1-4.55 1-7.22 2.95-10.19 6.57-2.03 2.47-6.61 3.38-9.67 4.75l-9.17 4.08c-1.58.7-6.04.18-6.58-1.61-1.89-6.26 3.83-12.63 7.35-16.52 10.84-11.97 11.61-3.48 17.38-12.98 4.43-7.28 12.92-.04 20.93-8.79.73-.8 1.63-2.11 1.92-2.89s-.97-2.78-1.55-3.35l-7.83 3.45-13.44 6.29-7.64 1.38c-2.81.51-5.7 3.34-7.92 4.03l-15.81 4.87c-10.47 3.22-13.44-1.21-18.72 6.56-2.61 3.85-5.76 8.58-2.51 13.57 1.26 1.94 4.23 4.93 6.26 6.96 14.82 2.03 28.81 3.2 43.59 4.36 2.21.25 5.54 3.68 7.42 5.13 3.93 3.04 8.19 6.07 10.42 10.25l5.26 9.84c.32.59 4.65 14.68-.07 14.51-10.46-.37-13.27-3.67-19.27-10.1-1.97-2.11-2.42-6.45-3.16-9.89l-7.46-1.68c-3.21-.72-6.2-3.46-9.39-5.45-6.15-3.86-14.49-1.06-23.24-1.82-4-.35-8.03-.76-11.85-1.36l-12.11-1.91c-2.88-.45-6.91-.57-9.4-1.31l-9.39-2.8c-3.65-1.09-5.62-8.53 2.78-16.69 4.48-4.35 6.85-10.87 5.42-17.15-.64-2.83-5.4-3.86-7.36-2.3-5.79 4.61-9.69 8.04-16.83 4.51z"/>
+</svg>
+    <script>
+// SVG dimensions - define globally
+const SVG_WIDTH = 412.91;
+const SVG_HEIGHT = 333.37;
+
+let scene, camera, renderer, dots = [];
 let mouse = { x: 0, y: 0 };
 let raycaster = new THREE.Raycaster();
 let mouseVector = new THREE.Vector2();
+let fillProgress = 0;
+let dotsToReveal = [];
 
 const config = {
-    density: 25,
-    spacing: 2,
     color: 0x36AEB0,
-    baseSize: 0.15,
-    hoverSize: 0.8,
-    influenceRadius: 3
+    dotSize: 0.12,
+    gridSpacing: 0.35,
+    fillSpeed: 0.0165, // Fills in ~1 second
+    influenceRadius: 2
 };
 
 function initLoader() {
@@ -208,60 +218,95 @@ function initLoader() {
     
     animate();
     
-    // Auto-remove loader after 3 seconds
+    // Auto-remove loader after completion
     setTimeout(function () {
         document.body.classList.add("loaded");
         setTimeout(function () {
             document.querySelector(".loader").remove();
         }, 1000);
-    }, 3000);
+    }, 2000); // Wait for fill to complete
+}
+
+function isPointInHorse(x, y) {
+    try {
+        const path = document.getElementById('horse-path');
+        const svg = document.getElementById('temp-svg');
+        
+        const point = svg.createSVGPoint();
+        point.x = x;
+        point.y = y;
+        
+        return path.isPointInFill(point);
+    } catch (e) {
+        console.error('Error checking point:', e);
+        return false;
+    }
 }
 
 function createDotGrid() {
-    const gridSize = config.density;
+    // Scale to fit in view
+    const scale = 0.08;
+    const scaledWidth = SVG_WIDTH * scale;
+    const scaledHeight = SVG_HEIGHT * scale;
     
-    // Calculate spacing based on viewport to fill the screen
-    const aspect = window.innerWidth / window.innerHeight;
-    const viewHeight = camera.position.z * Math.tan((camera.fov * Math.PI) / 360) * 2;
-    const viewWidth = viewHeight * aspect;
+    // Grid parameters
+    const gridSpacing = config.gridSpacing;
+    const cols = Math.ceil(scaledWidth / gridSpacing);
+    const rows = Math.ceil(scaledHeight / gridSpacing);
     
-    const spacingX = viewWidth / gridSize;
-    const spacingY = viewHeight / gridSize;
+    const offsetX = -scaledWidth / 2;
+    const offsetY = -scaledHeight / 2;
     
-    const offsetX = -viewWidth / 2;
-    const offsetY = -viewHeight / 2;
-    
-    for (let x = 0; x < gridSize; x++) {
-        for (let y = 0; y < gridSize; y++) {
-            const geometry = new THREE.CircleGeometry(config.baseSize, 32);
-            const material = new THREE.MeshBasicMaterial({ 
-                color: config.color,
-                transparent: true,
-                opacity: 0.6
-            });
-            const mesh = new THREE.Mesh(geometry, material);
+    // Create dots only where they're inside the horse shape
+    for (let x = 0; x < cols; x++) {
+        for (let y = 0; y < rows; y++) {
+            const posX = offsetX + x * gridSpacing;
+            const posY = offsetY + y * gridSpacing;
             
-            mesh.position.x = offsetX + x * spacingX;
-            mesh.position.y = offsetY + y * spacingY;
-            mesh.position.z = 0;
+            // Convert Three.js position to SVG coordinates
+            // Flip Y by subtracting from SVG_HEIGHT
+            const svgX = (posX - offsetX) / scale;
+            const svgY = SVG_HEIGHT - ((posY - offsetY) / scale);
             
-            scene.add(mesh);
-            
-            dots.push({
-                mesh: mesh,
-                baseX: mesh.position.x,
-                baseY: mesh.position.y,
-                baseZ: mesh.position.z,
-                targetScale: 1,
-                currentScale: 1,
-                targetOpacity: 0.6,
-                currentOpacity: 0.6,
-                velocityX: 0,
-                velocityY: 0,
-                phase: Math.random() * Math.PI * 2
-            });
+            // Only create dot if it's inside the horse silhouette
+            if (isPointInHorse(svgX, svgY)) {
+                const geometry = new THREE.CircleGeometry(config.dotSize, 16);
+                const material = new THREE.MeshBasicMaterial({ 
+                    color: config.color,
+                    transparent: true,
+                    opacity: 0
+                });
+                const mesh = new THREE.Mesh(geometry, material);
+                
+                mesh.position.x = posX;
+                mesh.position.y = posY;
+                mesh.position.z = 0;
+                
+                scene.add(mesh);
+                
+                const centerDist = Math.sqrt(posX * posX + posY * posY);
+                
+                dots.push({
+                    mesh: mesh,
+                    baseX: posX,
+                    baseY: posY,
+                    targetScale: 1,
+                    currentScale: 0,
+                    targetOpacity: 0,
+                    currentOpacity: 0,
+                    velocityX: 0,
+                    velocityY: 0,
+                    phase: Math.random() * Math.PI * 2,
+                    revealOrder: centerDist + Math.random() * 2,
+                    revealed: false
+                });
+            }
         }
     }
+    
+    // Sort dots randomly for progressive fill
+    dotsToReveal = [...dots].sort(() => Math.random() - 0.5);
+    console.log('Created', dots.length, 'dots');
 }
 
 function onMouseMove(event) {
@@ -285,52 +330,69 @@ function onTouchMove(event) {
 function animate() {
     requestAnimationFrame(animate);
     
-    raycaster.setFromCamera(mouseVector, camera);
+    // Progressive reveal
+    if (fillProgress < dotsToReveal.length) {
+        fillProgress += config.fillSpeed * dotsToReveal.length;
+        
+        for (let i = 0; i < Math.floor(fillProgress); i++) {
+            if (i < dotsToReveal.length && !dotsToReveal[i].revealed) {
+                dotsToReveal[i].revealed = true;
+                dotsToReveal[i].targetOpacity = 0.7;
+                dotsToReveal[i].targetScale = 1;
+            }
+        }
+    }
     
+    raycaster.setFromCamera(mouseVector, camera);
     const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
     const intersectPoint = new THREE.Vector3();
     raycaster.ray.intersectPlane(plane, intersectPoint);
     
-    const time = Date.now() * 0.001;
-    
-    dots.forEach((dot, i) => {
+    dots.forEach((dot) => {
+        if (!dot.revealed) return;
+        
+        // Calculate distance from mouse
         const dx = intersectPoint.x - dot.mesh.position.x;
         const dy = intersectPoint.y - dot.mesh.position.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
+        // Very subtle darkening and movement when mouse is near
         if (distance < config.influenceRadius) {
             const influence = 1 - (distance / config.influenceRadius);
-            const pushStrength = influence * 0.5;
             
-            dot.velocityX -= (dx / distance) * pushStrength * 0.1;
-            dot.velocityY -= (dy / distance) * pushStrength * 0.1;
+            // Darken significantly by increasing opacity
+            dot.targetOpacity = 0.7 + influence * 0.9;
             
-            dot.targetScale = 1 + influence * 4;
-            dot.targetOpacity = 0.8 + influence * 0.2;
+            // Very subtle push away from mouse
+            const pushStrength = influence * 0.05;
+            dot.velocityX -= (dx / distance) * pushStrength * 0.02;
+            dot.velocityY -= (dy / distance) * pushStrength * 0.02;
         } else {
-            dot.targetScale = 1;
-            dot.targetOpacity = 0.6;
+            dot.targetOpacity = 0.7;
         }
         
+        // Apply very subtle velocity with strong damping
         dot.mesh.position.x += dot.velocityX;
         dot.mesh.position.y += dot.velocityY;
-        dot.velocityX *= 0.9;
-        dot.velocityY *= 0.9;
+        dot.velocityX *= 0.92;
+        dot.velocityY *= 0.92;
         
-        const springX = (dot.baseX - dot.mesh.position.x) * 0.05;
-        const springY = (dot.baseY - dot.mesh.position.y) * 0.05;
+        // Gentle spring back to base position
+        const springX = (dot.baseX - dot.mesh.position.x) * 0.03;
+        const springY = (dot.baseY - dot.mesh.position.y) * 0.03;
         dot.velocityX += springX;
         dot.velocityY += springY;
         
+        // Keep scale constant at 1
+        dot.targetScale = 1;
+        
+        // Smooth scale interpolation
         dot.currentScale += (dot.targetScale - dot.currentScale) * 0.15;
         dot.mesh.scale.set(dot.currentScale, dot.currentScale, 1);
         
-        dot.currentOpacity += (dot.targetOpacity - dot.currentOpacity) * 0.15;
+        // Smooth opacity interpolation
+        dot.currentOpacity += (dot.targetOpacity - dot.currentOpacity) * 0.1;
         dot.mesh.material.opacity = dot.currentOpacity;
-        
-        const ambient = Math.sin(time * 0.5 + dot.phase) * 0.05;
-        dot.mesh.scale.x += ambient;
-        dot.mesh.scale.y += ambient;
     });
     
     renderer.render(scene, camera);
@@ -342,10 +404,8 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-// Initialize the loader
 initLoader();
 
-// Keep your theme toggle function
 function toggleTheme() {
     document.body.classList.toggle('light-mode');
     
@@ -356,6 +416,7 @@ function toggleTheme() {
         seedLogo.src = 'images/Seed-lockup.svg';
     }
 }
+</script>
     </script>
   </body>
 </html>
