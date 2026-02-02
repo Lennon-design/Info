@@ -346,12 +346,6 @@ body.light-mode hr {
 body.light-mode .footer-section {
 }
 
-body.light-mode .loader svg circle,
-body.light-mode .loader svg rect,
-body.light-mode .loader svg polygon {
-  fill: #e9f0ca;
-}
-
 body.light-mode ::selection {
   background-color: #36aeb0;
 }
@@ -398,11 +392,52 @@ body.light-mode button {
 
 .loader.hidden .dot {
   opacity: 0;
-  transition: opacity 0.8s ease-in;
+  transition: opacity 0.5s ease-in;
+}
+
+/* Light mode dots - lighter color */
+body.light-mode .dot {
+  fill: #e9f0ca;
 }
 
 .horse-loader {
   width: 260px;
   height: auto;
   display: block;
+}
+.theme-toggle-hint {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #272727;
+  z-index: 10;
+}
+
+.mode-text {
+  font-weight: 600;
+  text-decoration: none;
+  color: #272727;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease;
+  text-decoration-skip-ink: none;
+}
+
+.mode-text:hover {
+  opacity: 0.5;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Light mode */
+body.light-mode .theme-toggle-hint {
+  color: #f9f9f9;
+}
+
+body.light-mode .mode-text {
+  color: #f9f9f9;
 }

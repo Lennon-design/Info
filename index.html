@@ -54,7 +54,10 @@
       display: block;
     }
   </style>
-  <body onclick="toggleTheme()">
+  <body>
+    <div class="theme-toggle-hint">
+  Click • Tap for <a href="#" class="mode-text">PM</a>
+</div>
     <div class="loader">
   <svg viewBox="0 0 412.91 333.37" class="horse-loader">
     <defs>
@@ -177,16 +180,21 @@
       </div>
     </div>
     </footer>
-  <script>
-    function toggleTheme() {
+  <script>function toggleTheme(e) {
+  e.preventDefault(); // prevent # jump
+  
   document.body.classList.toggle('light-mode');
+  
+  // Update mode text
+  const modeText = document.querySelector('.mode-text');
+  const isLightMode = document.body.classList.contains('light-mode');
+  
+  modeText.textContent = isLightMode ? 'AM' : 'PM';
   
   // Swap Seed logo
   const seedLogo = document.querySelector('.seed-pill img');
-  const isLightMode = document.body.classList.contains('light-mode');
-  
   if (isLightMode) {
-    seedLogo.src = 'images/Seed-lockup-light.svg'; // or whatever your light version is named
+    seedLogo.src = 'images/Seed-lockup-light.svg';
   } else {
     seedLogo.src = 'images/Seed-lockup.svg';
   }
@@ -195,12 +203,17 @@
   localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
 }
 
-// Load saved preference on page load
-window.addEventListener('DOMContentLoaded', () => {
+// Add click listener
+document.addEventListener('DOMContentLoaded', () => {
+  const modeText = document.querySelector('.mode-text');
+  modeText.addEventListener('click', toggleTheme);
+  
+  // Load saved preference
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') {
     document.body.classList.add('light-mode');
     document.querySelector('.seed-pill img').src = 'images/Seed-lockup-light.svg';
+    modeText.textContent = 'AM';
   }
 });
   const DOT_COUNT = 1000;
