@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="images/favicon-teal.svg" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lennon Fanning</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+    body {
+      cursor: url(images/Pointer.svg), auto;
+      transition: background-color 0.3s ease, color 0.3s ease; /* smooth transition */
+    }
+    a,
+    button {
+      cursor: url(images/Click.svg), pointer;
+    }
+
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(197, 197, 197, 0.2);
+      backdrop-filter: blur(24px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    .loader svg {
+      display: block;
+      position: absolute;
+    }
+
+    .loader svg.active {
+      display: block;
+    }
+  </style>
+  <body>
+    <div class="theme-toggle-hint">
+  Click • Tap for <a href="#" class="mode-text">PM</a>
+</div>
+    <div class="loader">
+  <svg viewBox="0 0 412.91 333.37" class="horse-loader">
+    <defs>
+      <mask id="horse-mask">
+    <!-- black hides, white reveals -->
+    <rect width="100%" height="100%" fill="black" />
+    <path
+      d="M161.98,263.23c-4.92-1.66-4.13-9.91-.53-13.35,5.54-5.3,10.34-12.13,8.51-20.7-.43-2.02-5.11-3.69-6.81-2.43-3.58,2.64-7.58,6.36-11.79,6.21-7.3-.26-11.6-4.93-15.68-10.99-6.91,1.29-14.99,11.17-17.68,12.11l-22.02,7.7c-8.26,2.89-13.95,10.65-38.75,18.41-3.06.96-6.78,4.66-9.64,6.29-6.16,3.49-11.73,7.53-17.36,11.37-6.51,4.44-8.1,8.69-9.88,16.09-2.11,8.75-3.21,15.78,1.66,24.5,1.73,3.1,2.03,11.87-1.9,13.64-5.49,2.48-12.04-3.42-13.72-8.58-.69-2.1-3.05-5.04-3.39-6.94l-2.77-15.64c-.49-2.74-.02-5.13.51-7.99,1.28-6.86,3.6-11.12,9.67-14.89,2.65-1.65,5.24-6.28,7.93-8.69,7.69-6.89,16.7-13.49,20.84-23.09,2.51-5.82,4.48-9.56,11.78-10.36,5.7-.62,11.53-3.43,15.04-8.04,2.79-3.67,6.3-7.19,7.24-11.83,1.85-9.13,2.44-18.5,6.18-26.99l11.9-27.03c5.21-11.83,25.21-21.77,18.55-23.21-7.29-1.58-10.57,1.09-14.35,5.9-2.96,3.77-9.37,6.27-9.98,11.73-.55,4.93-3.3,6.88-5.79,10.38-6.08,8.56-10.45,18.28-18.43,25.68-2.62,2.43-4.35,4.51-6.32,7.92-6.94,11.97-22.44,7.12-21.26,4.24,3.27-7.96,4.92.05,5.74-14.1.4-6.84,2.8-13.55,3.58-20.64.56-5.04,2.32-11.17,3.92-15.86l-.41-9.61c-1.24-3.31-6.86-5.45-4.88-10.21,2.47-5.9,7.24-10.97,11.86-15.78,3.29-3.43,3.72-9.06,6.18-13.05,5.8-9.42,11.24-18.77,16.24-28.46,2.63-5.1,8.98-3.99,13.05-3.36,12.81,1.96,20.56,4.38,25.09,17.66,1.85,5.44,8.37,10.96,8.42,16.76.07,7.22.04,12.4,5.7,17.4,2.81,2.48,6.15,4.61,10.65,4.53,11.99-.22,24.09-1.01,35.95,1.03,5.73.99,9.85-.61,12.16-6.38l3.11-7.78c3.32-8.31,9.83-9.88,4.81-23.76,1.62-8.07,4.44-6.63,11.32-9.3l2.62-4.69-6.25-5.78c-.35-3.04-1.61-5.61-4.26-6.24-16-3.82-9.61-.28-28.39-5.95-3.11-.94-7.93,3.36-10.82,3.66-4.75.49-4.94-5.27-6.36-8.26-1.58-3.32-6.44-5.27-9.68-7.15l-4.19-2.43c-.99-.57-.75-4.62-.39-4.88,4.91,1.33,6.93,1.03,9.71-1.6,2.3-2.16,4.49-3.94,4.07-6.17-1.58-8.34-5.5-4.08-9.46-8.14-.64-.66-.5-3.57.24-4.13,10.59-8.04,17.66,2.41,22.1-2.72,8.04-9.29,10.69-12.04,21.94-17.72,26.11-3.53,10.02-.09,35.13,1.3l15.11.84c8.15.45,16.02,5.06,23.79,7.57,10.94,3.53.54,4.86,13.03,14.3,3.88,2.93,7.15,7.65,10.12,11.37l9.43,3.62c4.96,11.84,13.55,8.29,10.55,15.77l-2.82,7.04c-11.92,7.13-20.66-4.92-30.2-1.39,2.93,5.14,5.49,8.46,8.63,12.43l5.39,6.79c2.42,3.05,6.15,5.7,9.88,7.19,17.01,6.79,21.86,16.49,26.88,32.32,1.01,3.19,5.03,6.77,7.92,8.65,19.16-8.05,14.73-27.19,26.08-31.98,15.23-6.42,12.43,8.06,31.16,19.08,14.03,8.25,15.49,4.96,20.97,18.97,1.9,4.87,2.73,9.42,3.43,14.82.59,4.53,1.76,8.59.64,13.08-1.05,4.19-2.66,8.68-4.65,11.5-8.71.47-15.17-16.06-13.82-21.21,2.03-7.74-.18-13.21-6.43-17.63l-12.9-9.12c-13.67-9.67-17.74,21.49-26.25,35.52-2.29,3.77-7.15,6.76-9.56,10.26-2.57,3.72-3.58,5.9-8.63,6.3-8.29.66-23.16,9.29-24.18,11.86l-6.27,15.75c-.74,1.86-21.59,15.21-30.06,22.96-3.05,2.79-5.48,8.19-9.8,8.96-6.04,1.07-9.33,3.8-13.28,8.13l-15.63,6.94c-2.52,1.12-6.74,2.5-8.56-.39-3.14-4.96,3.82-13.18,7.07-16.78,10.89-12.05,11.57-3.01,17.91-13.58,3.66-6.11,12.53.32,20.41-8.16.73-.78,1.64-2.11,1.89-2.91s-.92-2.68-1.5-3.36c-3.32,1.31-20.07,9.13-21.03,9.36-6.01,1.43-10.64,3.15-16.21,5.7-4.51,2.07-10.23,3.47-15.38,4.93-12.19,3.45-13.47-1.28-19.16,7.15-2.47,3.66-5.18,8.26-2.13,13.04,1.35,2.13,4.74,5.42,6.91,7.16l43.69,4.14,7.92,5.91c15.13,11.28,19.94,33.73,14.3,33.77-3.37.03-9.35-1.17-11.91-3.13-7.09-5.41-9.43-8.59-10.44-16.88l-7.43-1.61c-7.21-1.56-7.63-8.28-18.65-7.55-7.08.47-13.37.73-20.25-.29l-9.61-1.42-18.3-2.86c-2.13-.33-5.51-1.62-8.27-2.55Z"
+      fill="white"
+    />
+  </mask>
+    </defs>
+
+    <g id="dot-group" mask="url(#horse-mask)">
+      <!-- dots injected here -->
+    </g>
+  </svg>
+</div>
+    <div class="main-content">
+      <div class="container-body">
+        <h1 style="padding-top: 16px">Lennon Fanning</h1>
+        <h2 style="padding-top: 8px">
+          Brand, growth, graphic, & product designer
+        </h2>
+        <p style="padding-top: 32px">
+          Lennon is an adaptable and effective multifaceted designer capable of
+          shipping finished products efficiently across channels.
+        </p>
+        <p style="padding-top: 16px">
+          He’s an artist with roots in psychology and cultural studies. He’s
+          focused on well-curated design, often involving inspirations from
+          illustrative folk art, the natural world, and society at large.
+          Leveraging his breadth of knowledge, expertise in modern cultural, and
+          background in human behavior, he elevates work through strategic and
+          compelling storytelling with a unique perspective and originality.
+        </p>
+        <div style="display: flex; align-items: center; padding-top: 32px">
+          <div style="padding-right: 8px">
+            <img
+              src="images/Currently-working-favicon.svg"
+              class="pulse"
+              style="margin-top: -3px"
+              alt="online indicator"
+            />
+          </div>
+          <h2>
+            Lennon is currently a
+            <span style="padding-right: 2px; padding-left: 2px;">
+            <div class="pill">Brand Designer</div>
+            </span>
+            at
+            <span style="padding-right: 2px; padding-left: 2px;">
+            <a href="https://seed.com" target="_blank" class="seed-link">
+              <div class="seed-pill"><img src="images/Seed-lockup.svg" /></div>
+            </a>
+            </span>
+          </h2>
+        </div>
+
+        <!--
+      <h2 style="padding-top: 32px; padding-bottom: 8px">Work</h2>
+      <hr style="border: 0.75px solid #272727" />
+      <div class="padding-16"></div>
+      <div style="padding-left: 32px; padding-bottom: 8px">
+        <img src="images/Seed-lockup.svg" />
+      </div>
+      <div
+        style="
+          width: 335px;
+          height: 264px;
+          border: 1px solid #1c3a13;
+          border-radius: 32px;
+          overflow: hidden;
+        " >
+        *Video will go here*
+      </div>
+      <div style="padding-left: 32px; padding-top: 8px">
+        <p class="tag" style="padding-right: 8px">Brand Design</p>
+        <p class="tag">Email Design</p>
+        <p class="tag">Graphic Design</p>
+      </div>
+      -->
+        <p style="padding-top: 32px">
+          Examples of work and resume available upon request.
+        </p>
+        <div style="padding-bottom: 160px"></div>
+    </div>
+
+      <!--Footer-->
+      <footer class="footer-section">
+    <div class="container-body">
+      <hr style="border: 0.75px solid #8e8e8e" />
+      <div style="padding-bottom: 16px"></div>
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <div style="display: flex; gap: 8px; align-items: center">
+          <div>
+            <img style="margin-top: 3px" src="images/mail-icon.svg" ; />
+          </div>
+          <div>
+            <h2>
+              <a
+                href="mailto:mail@lennonfanning.info?subject=*"
+                class="h2-link-footer"
+              >
+                mail@lennonfanning.info
+              </a>
+            </h2>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center">
+          <div><img style="margin-top: -4px" src="images/oakland.svg" /></div>
+          <div><h2 style="color: #8e8e8e">Oakland</h2></div>
+        </div>
+      </div>
+    </div>
+    </footer>
+  <script>function toggleTheme(e) {
+  e.preventDefault(); // prevent # jump
+  
+  document.body.classList.toggle('light-mode');
+  
+  // Update mode text
+  const modeText = document.querySelector('.mode-text');
+  const isLightMode = document.body.classList.contains('light-mode');
+  
+  modeText.textContent = isLightMode ? 'AM' : 'PM';
+  
+  // Swap Seed logo
+  const seedLogo = document.querySelector('.seed-pill img');
+  if (isLightMode) {
+    seedLogo.src = 'images/Seed-lockup-light.svg';
+  } else {
+    seedLogo.src = 'images/Seed-lockup.svg';
+  }
+  
+  // Save preference
+  localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+}
+
+// Add click listener
+document.addEventListener('DOMContentLoaded', () => {
+  const modeText = document.querySelector('.mode-text');
+  modeText.addEventListener('click', toggleTheme);
+  
+  // Load saved preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    document.querySelector('.seed-pill img').src = 'images/Seed-lockup-light.svg';
+    modeText.textContent = 'AM';
+  }
+});
+  const DOT_COUNT = 1000;
+const DURATION = 3000;
+
+const group = document.getElementById("dot-group");
+
+// Calculate grid dimensions
+const SVG_WIDTH = 412.91;
+const SVG_HEIGHT = 333.37;
+const COLS = 35; // adjust for density
+const ROWS = Math.ceil((DOT_COUNT / COLS));
+const SPACING_X = SVG_WIDTH / COLS;
+const SPACING_Y = SVG_HEIGHT / ROWS;
+
+let dotIndex = 0;
+for (let row = 0; row < ROWS && dotIndex < DOT_COUNT; row++) {
+  for (let col = 0; col < COLS && dotIndex < DOT_COUNT; col++) {
+    const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    
+    dot.setAttribute("r", 3);
+    dot.setAttribute("cx", col * SPACING_X + SPACING_X / 2);
+    dot.setAttribute("cy", row * SPACING_Y + SPACING_Y / 2);
+    dot.classList.add("dot");
+    
+    const delay = Math.random() * DURATION;
+    dot.style.transitionDelay = `${delay}ms`;
+    
+    group.appendChild(dot);
+    dotIndex++;
+  }
+}
+
+// trigger reveal
+requestAnimationFrame(() => {
+  document.querySelectorAll(".dot").forEach(dot => {
+    dot.style.opacity = 1;
+  });
+});
+
+// hold + exit
+setTimeout(() => {
+  document.querySelector(".loader").classList.add("hidden");
+}, 4000);
+  </script>
+  </body>
+</html>
