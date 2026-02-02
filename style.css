@@ -368,34 +368,41 @@ body.light-mode button {
 
 .loader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(197, 197, 197, 0.2);
-  backdrop-filter: blur(24px);
+  inset: 0;
+  background: rgba(249, 249, 249, 0.1);
+  backdrop-filter: blur(40px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  opacity: 1;
-  transition: opacity 1s ease;
+  transition:
+    opacity 1.2s ease,
+    backdrop-filter 1.2s ease;
 }
 
-.loaded .loader {
+.loader.hidden {
   opacity: 0;
+  backdrop-filter: blur(0);
   pointer-events: none;
 }
 
-#canvas-container {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+.horse-loader {
+  width: 260px;
 }
 
-#canvas-container canvas {
-  width: 100% !important;
-  height: 100% !important;
+.dot {
+  fill: #36aeb0;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.loader.hidden .dot {
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+}
+
+.horse-loader {
+  width: 260px;
+  height: auto;
+  display: block;
 }
