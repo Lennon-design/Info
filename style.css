@@ -355,12 +355,12 @@ body.light-mode ::selection {
 
 /* Light mode cursors */
 body.light-mode {
-  cursor: url(images/Pointer-light.svg), auto;
+  cursor: url(images/Pointer-light.svg), auto !important;
 }
 
 body.light-mode a,
 body.light-mode button {
-  cursor: url(images/Click-light.svg), pointer;
+  cursor: url(images/Click-light.svg), pointer !important;
 }
 
 .loader {
