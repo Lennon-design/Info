@@ -343,9 +343,6 @@ body.light-mode hr {
   border-color: #8e8e8e !important;
 }
 
-body.light-mode .footer-section {
-}
-
 body.light-mode ::selection {
   background-color: #36aeb0;
 }
@@ -417,7 +414,7 @@ body.light-mode .dot {
 }
 
 .mode-text {
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: none;
   color: #272727;
   transition:

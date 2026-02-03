@@ -28,35 +28,10 @@
     button {
       cursor: url(images/Click.svg), pointer;
     }
-
-    .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(197, 197, 197, 0.2);
-      backdrop-filter: blur(24px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      opacity: 1;
-      transition: opacity 1s ease;
-    }
-
-    .loader svg {
-      display: block;
-      position: absolute;
-    }
-
-    .loader svg.active {
-      display: block;
-    }
   </style>
   <body>
     <div class="theme-toggle-hint">
-  Click • Tap for <a href="#" class="mode-text">PM</a>
+  <a href="#" class="mode-text">PM</a>
 </div>
     <div class="loader">
   <svg viewBox="0 0 412.91 333.37" class="horse-loader">
@@ -203,7 +178,6 @@
   localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
 }
 
-// Add click listener
 document.addEventListener('DOMContentLoaded', () => {
   const modeText = document.querySelector('.mode-text');
   modeText.addEventListener('click', toggleTheme);
@@ -215,49 +189,51 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.seed-pill img').src = 'images/Seed-lockup-light.svg';
     modeText.textContent = 'AM';
   }
-});
+
+  // DOT GENERATION - move all this code inside DOMContentLoaded
   const DOT_COUNT = 1000;
-const DURATION = 3000;
+  const DURATION = 3000;
 
-const group = document.getElementById("dot-group");
+  const group = document.getElementById("dot-group");
 
-// Calculate grid dimensions
-const SVG_WIDTH = 412.91;
-const SVG_HEIGHT = 333.37;
-const COLS = 35; // adjust for density
-const ROWS = Math.ceil((DOT_COUNT / COLS));
-const SPACING_X = SVG_WIDTH / COLS;
-const SPACING_Y = SVG_HEIGHT / ROWS;
+  // Calculate grid dimensions
+  const SVG_WIDTH = 412.91;
+  const SVG_HEIGHT = 333.37;
+  const COLS = 35;
+  const ROWS = Math.ceil((DOT_COUNT / COLS));
+  const SPACING_X = SVG_WIDTH / COLS;
+  const SPACING_Y = SVG_HEIGHT / ROWS;
 
-let dotIndex = 0;
-for (let row = 0; row < ROWS && dotIndex < DOT_COUNT; row++) {
-  for (let col = 0; col < COLS && dotIndex < DOT_COUNT; col++) {
-    const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    
-    dot.setAttribute("r", 3);
-    dot.setAttribute("cx", col * SPACING_X + SPACING_X / 2);
-    dot.setAttribute("cy", row * SPACING_Y + SPACING_Y / 2);
-    dot.classList.add("dot");
-    
-    const delay = Math.random() * DURATION;
-    dot.style.transitionDelay = `${delay}ms`;
-    
-    group.appendChild(dot);
-    dotIndex++;
+  let dotIndex = 0;
+  for (let row = 0; row < ROWS && dotIndex < DOT_COUNT; row++) {
+    for (let col = 0; col < COLS && dotIndex < DOT_COUNT; col++) {
+      const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      
+      dot.setAttribute("r", 3);
+      dot.setAttribute("cx", col * SPACING_X + SPACING_X / 2);
+      dot.setAttribute("cy", row * SPACING_Y + SPACING_Y / 2);
+      dot.classList.add("dot");
+      
+      const delay = Math.random() * DURATION;
+      dot.style.transitionDelay = `${delay}ms`;
+      
+      group.appendChild(dot);
+      dotIndex++;
+    }
   }
-}
 
-// trigger reveal
-requestAnimationFrame(() => {
-  document.querySelectorAll(".dot").forEach(dot => {
-    dot.style.opacity = 1;
+  // trigger reveal
+  requestAnimationFrame(() => {
+    document.querySelectorAll(".dot").forEach(dot => {
+      dot.style.opacity = 1;
+    });
   });
-});
 
-// hold + exit
-setTimeout(() => {
-  document.querySelector(".loader").classList.add("hidden");
-}, 4000);
+  // hold + exit
+  setTimeout(() => {
+    document.querySelector(".loader").classList.add("hidden");
+  }, 4000);
+});
   </script>
   </body>
 </html>
