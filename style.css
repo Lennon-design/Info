@@ -12,6 +12,15 @@ body {
   position: relative;
 }
 
+body {
+  cursor: url(images/Pointer.svg), auto;
+}
+
+a,
+button {
+  cursor: url(images/Click.svg), pointer;
+}
+
 html,
 body {
   height: 100%;
