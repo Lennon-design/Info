@@ -10,9 +10,6 @@ body {
   background-color: #f9f9f9;
   color: #272727;
   position: relative;
-}
-
-body {
   cursor: url(images/Pointer.svg), auto;
 }
 
