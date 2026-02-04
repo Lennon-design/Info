@@ -1,0 +1,446 @@
+/* Desktop: centered layout */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  background-color: #f9f9f9;
+  color: #272727;
+  position: relative;
+  cursor: url(images/Pointer.svg), auto;
+}
+
+a,
+button {
+  cursor: url(images/Click.svg), pointer;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.main-content {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.container-body {
+  width: 334px;
+  text-align: left;
+}
+
+.footer-section {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 334px;
+
+  padding-bottom: 48px;
+}
+
+/* Mobile breakpoints */
+@media (max-width: 768px) {
+  body {
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .main-content {
+    padding-top: 48px;
+    align-items: flex-start;
+  }
+
+  .footer-section {
+    bottom: 48px;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 48px;
+  }
+
+  .footer-section {
+    bottom: 48px;
+  }
+}
+
+/* Container with fixed width */
+.container-body {
+  width: 334px; /* fixed width */
+  text-align: left; /* center text inside */
+  align-items: center;
+}
+
+p {
+  color: #272727;
+  font-family: "Inter Tight";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h1 {
+  color: #272727;
+  font-family: "Inter Tight";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+h2 {
+  color: #272727;
+  font-family: "Inter Tight";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+h2-footer {
+  color: #8e8e8e;
+  font-family: "Inter Tight";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.tag {
+  color: #272727;
+  font-family: "Inter Tight";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: 1px solid #272727;
+  border-radius: 100px;
+  padding: 4px 8px; /* top/bottom left/right */
+  display: inline-block;
+}
+
+a {
+  color: #272727;
+  font-family: "Inter Tight";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #8e8e8e;
+}
+
+.inter-tight {
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.h2-wrapper {
+  display: flex;
+  align-items: center; /* vertically center SVG and text */
+  gap: 2px; /* space between SVG and heading */
+}
+
+.h2-wrapper-8 {
+  display: flex;
+  align-items: center; /* vertically center SVG and text */
+  gap: 8px; /* space between SVG and heading */
+}
+
+.circle-icon {
+  width: 10px; /* adjust size as needed */
+  height: 10px;
+}
+
+.wrapper-1 {
+  display: flex;
+  width: 328px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.spacer {
+  margin-bottom: 32px;
+}
+
+.pulse {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  animation: pulse 2s infinite ease-in-out;
+  vertical-align: middle; /* keeps it centered with text */
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2; /* fades slightly */
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.seed-link {
+  color: #1c3a13; /* your link color */
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s ease; /* smooth fade */
+  margin-left: 1px;
+}
+
+.seed-link:hover {
+  opacity: 0.5; /* change to 60% opacity on hover */
+}
+
+.h1-link {
+  color: #272727; /* same as h1 */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: normal;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease;
+  text-decoration-skip-ink: none; /* ensure underline is drawn */
+}
+
+.h1-link:hover {
+  opacity: 0.5;
+  text-decoration-line: underline; /* explicitly underline */
+  text-decoration-style: dashed; /* dashed line */
+  text-decoration-thickness: 1.5px; /* optional, makes it more visible */
+}
+
+.h2-link {
+  color: #272727;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: normal;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease;
+  text-decoration-skip-ink: none; /* ensure underline is drawn */
+}
+
+.h2-link-footer {
+  color: #8e8e8e;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: normal;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease;
+  text-decoration-skip-ink: none; /* ensure underline is drawn */
+}
+
+.h2-link:hover {
+  opacity: 0.5;
+  text-decoration-line: underline; /* explicitly underline */
+  text-decoration-style: dashed; /* dashed line */
+  text-decoration-thickness: 1.5px; /* optional, makes it more visible */
+}
+
+.h2-link-footer:hover {
+  opacity: 0.5;
+  text-decoration-line: underline; /* explicitly underline */
+  text-decoration-style: dashed; /* dashed line */
+  text-decoration-thickness: 1.5px; /* optional, makes it more visible */
+}
+
+::selection {
+  background-color: #feff61; /* highlight color */
+}
+
+.image-margin {
+  margin-left: 8px;
+  width: 10px;
+}
+
+.pill {
+  border: 1px solid #272727;
+  border-radius: 100px;
+  padding: 4px 8px; /* top/bottom left/right */
+  display: inline-block;
+}
+
+.seed-pill {
+  border: 1px solid #1c3a13;
+  border-radius: 100px;
+  padding: 4px 8px; /* top/bottom left/right */
+  display: inline-block;
+}
+
+.padding-16 {
+  margin-bottom: 16px;
+}
+
+.padding-8 {
+  margin-bottom: 8px;
+}
+
+/* Light mode color overrides */
+body.light-mode {
+  background-color: #272727;
+  color: #f9f9f9;
+}
+
+body.light-mode p,
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode a,
+body.light-mode .tag,
+body.light-mode .h1-link,
+body.light-mode .h2-link {
+  color: #f9f9f9;
+}
+
+body.light-mode .h2-link-footer {
+  color: #8e8e8e;
+}
+
+body.light-mode .seed-link {
+  color: #e9f0ca;
+}
+
+body.light-mode .seed-pill {
+  color: #e9f0ca;
+  border-color: #e9f0ca;
+}
+
+body.light-mode .tag,
+body.light-mode .pill {
+  border-color: #f9f9f9;
+}
+
+body.light-mode hr {
+  border-color: #8e8e8e !important;
+}
+
+body.light-mode ::selection {
+  background-color: #36aeb0;
+}
+
+/* Light mode cursors */
+body.light-mode {
+  cursor: url(images/Pointer-light.svg), auto !important;
+}
+
+body.light-mode a,
+body.light-mode button {
+  cursor: url(images/Click-light.svg), pointer !important;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(249, 249, 249, 0.1);
+  backdrop-filter: blur(40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition:
+    opacity 1.2s ease,
+    backdrop-filter 1.2s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  backdrop-filter: blur(0);
+  pointer-events: none;
+}
+
+.horse-loader {
+  width: 260px;
+}
+
+.dot {
+  fill: #36aeb0;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.loader.hidden .dot {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+/* Light mode dots - lighter color */
+body.light-mode .dot {
+  fill: #e9f0ca;
+}
+
+.horse-loader {
+  width: 260px;
+  height: auto;
+  display: block;
+}
+.theme-toggle-hint {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #272727;
+  z-index: 10;
+}
+
+.mode-text {
+  font-weight: 400;
+  text-decoration: none;
+  color: #272727;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease;
+  text-decoration-skip-ink: none;
+}
+
+.mode-text:hover {
+  opacity: 0.5;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Light mode */
+body.light-mode .theme-toggle-hint {
+  color: #f9f9f9;
+}
+
+body.light-mode .mode-text {
+  color: #f9f9f9;
+}
