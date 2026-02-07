@@ -11,11 +11,13 @@ body {
   color: #272727;
   position: relative;
   cursor: url(images/Pointer.svg), auto;
+  transition: 3s ease;
 }
 
 a,
 button {
   cursor: url(images/Click.svg), pointer;
+  transition: 3s ease;
 }
 
 html,
@@ -315,6 +317,9 @@ footer {
 body.light-mode {
   background-color: #272727;
   color: #f9f9f9;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 body.light-mode p,
@@ -325,6 +330,7 @@ body.light-mode .tag,
 body.light-mode .h1-link,
 body.light-mode .h2-link {
   color: #f9f9f9;
+  transition: color 0.3s ease;
 }
 
 body.light-mode .h2-link-footer {
@@ -333,20 +339,24 @@ body.light-mode .h2-link-footer {
 
 body.light-mode .seed-link {
   color: #e9f0ca;
+  transition: color 0.3s ease;
 }
 
 body.light-mode .seed-pill {
   color: #e9f0ca;
   border-color: #e9f0ca;
+  transition: color 0.3s ease;
 }
 
 body.light-mode .tag,
 body.light-mode .pill {
   border-color: #f9f9f9;
+  transition: color 0.3s ease;
 }
 
 body.light-mode hr {
   border-color: #8e8e8e !important;
+  transition: border-color 3s ease;
 }
 
 body.light-mode ::selection {
@@ -356,11 +366,13 @@ body.light-mode ::selection {
 /* Light mode cursors */
 body.light-mode {
   cursor: url(images/pointer-light.svg), auto !important;
+  transition: 3s ease;
 }
 
 body.light-mode a,
 body.light-mode button {
   cursor: url(images/click-light.svg), pointer !important;
+  transition: 3s ease;
 }
 
 .loader {
@@ -408,6 +420,7 @@ body.light-mode .dot {
   height: auto;
   display: block;
 }
+
 .theme-toggle-hint {
   position: fixed;
   top: 40px;
@@ -420,6 +433,9 @@ body.light-mode .dot {
 }
 
 .mode-text {
+  border: 1px solid;
+  border-radius: 100px;
+  padding: 4px 8px;
   font-weight: 400;
   text-decoration: none;
   color: #272727;
@@ -439,8 +455,10 @@ body.light-mode .dot {
 /* Light mode */
 body.light-mode .theme-toggle-hint {
   color: #f9f9f9;
+  transition: 3s ease;
 }
 
 body.light-mode .mode-text {
   color: #f9f9f9;
+  transition: 3s ease;
 }
