@@ -11,13 +11,14 @@ body {
   color: #272727;
   position: relative;
   cursor: url(images/Pointer.svg), auto;
-  transition: 3s ease;
+  transition:
+    background-color 3s ease,
+    color 3s ease;
 }
 
 a,
 button {
   cursor: url(images/Click.svg), pointer;
-  transition: 3s ease;
 }
 
 html,
@@ -330,28 +331,45 @@ body.light-mode .tag,
 body.light-mode .h1-link,
 body.light-mode .h2-link {
   color: #f9f9f9;
-  transition: color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease,
+    color 0.3s ease;
 }
 
 body.light-mode .h2-link-footer {
   color: #8e8e8e;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease,
+    color 0.3s ease;
 }
 
 body.light-mode .seed-link {
   color: #e9f0ca;
-  transition: color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease,
+    color 0.3s ease;
 }
 
 body.light-mode .seed-pill {
   color: #e9f0ca;
   border-color: #e9f0ca;
-  transition: color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 body.light-mode .tag,
 body.light-mode .pill {
   border-color: #f9f9f9;
-  transition: color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    text-decoration 0.3s ease,
+    color 0.3s ease;
 }
 
 body.light-mode hr {
@@ -366,13 +384,14 @@ body.light-mode ::selection {
 /* Light mode cursors */
 body.light-mode {
   cursor: url(images/pointer-light.svg), auto !important;
-  transition: 3s ease;
+  transition:
+    background-color 3s ease,
+    color 3s ease;
 }
 
 body.light-mode a,
 body.light-mode button {
   cursor: url(images/click-light.svg), pointer !important;
-  transition: 3s ease;
 }
 
 .loader {
@@ -441,7 +460,8 @@ body.light-mode .dot {
   color: #272727;
   transition:
     opacity 0.3s ease,
-    text-decoration 0.3s ease;
+    text-decoration 0.3s ease,
+    color 0.3s ease;
   text-decoration-skip-ink: none;
 }
 
@@ -460,5 +480,5 @@ body.light-mode .theme-toggle-hint {
 
 body.light-mode .mode-text {
   color: #f9f9f9;
-  transition: 3s ease;
+  transition: 0.3s ease;
 }
