@@ -497,11 +497,18 @@ body.loading {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* Mobile: single 366px column below the 996px breakpoint */
+/* Mobile: single 366px column below the 996px breakpoint.
+   Top/bottom padding matches the side centering gap so all four
+   viewport margins are equal. */
 @media (max-width: 995.98px) {
   .all-content {
     max-width: 366px;
     padding-inline: 0;
+    padding-top: calc((100vw - 366px) / 2);
+  }
+
+  .page {
+    padding-block-end: calc(var(--footer-height) + (100vw - 366px) / 2);
   }
 
   .work-grid {
@@ -540,6 +547,14 @@ body.loading {
   .footer-inner {
     max-width: 100%;
     padding-inline: 8px;
+  }
+
+  .all-content {
+    padding-top: 8px;
+  }
+
+  .page {
+    padding-block-end: calc(var(--footer-height) + 8px);
   }
 
   .work-grid {
