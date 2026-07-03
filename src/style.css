@@ -1,0 +1,556 @@
+:root {
+  --bg: #F5F5F5;
+  --ink: #001820;
+  --card: #EBEBEB;
+  --muted: rgba(0, 24, 32, 0.5);
+  --active-green: #267434;
+  --seed-accent: #1C3A13;
+  --highlight: #FEFF61;
+
+  --cursor-default: url('/src/assets/cursor/cursor-light-default.svg') 3 3, auto;
+  --cursor-clickable: url('/src/assets/cursor/cursor-light-clickable.svg') 3 3, pointer;
+
+  /* 112px side padding + 772px content = 996px (the mobile breakpoint) */
+  --content-width: 772px;
+  --side-pad: 112px;
+  --footer-height: 96px;
+}
+
+[data-theme='dark'] {
+  --bg: #001820;
+  --ink: #F5F5F5;
+  --card: #0A222A;
+  --muted: rgba(245, 245, 245, 0.5);
+  --seed-accent: #E9F0CA;
+  --highlight: #01009E;
+
+  --cursor-default: url('/src/assets/cursor/cursor-dark-default.svg') 3 3, auto;
+  --cursor-clickable: url('/src/assets/cursor/cursor-dark-clickable.svg') 3 3, pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+::selection {
+  background: var(--highlight);
+  color: var(--ink);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  cursor: var(--cursor-default);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.hoverable,
+button,
+a {
+  cursor: var(--cursor-clickable);
+}
+
+@media (hover: none), (pointer: coarse) {
+  body,
+  .hoverable,
+  button,
+  a {
+    cursor: auto;
+  }
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Layout: all-content sits 112px from the top of the viewport,
+   content column capped at 772px, breakpoint at 996px. */
+.all-content {
+  max-width: calc(var(--content-width) + 2 * var(--side-pad));
+  margin-inline: auto;
+  padding: var(--side-pad) var(--side-pad) 0;
+}
+
+.page {
+  padding-block-end: calc(var(--footer-height) + 80px);
+}
+
+/* Pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 1px solid var(--ink);
+  border-radius: 100px;
+  /* 3/7 instead of Figma's 4/8: CSS borders draw outside the padding box,
+     Figma strokes draw inside, so this keeps the rendered pill at 23px tall */
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.pill-button {
+  background: transparent;
+  font-family: inherit;
+  color: inherit;
+  transition: opacity 200ms ease;
+}
+
+.pill-button:hover {
+  opacity: 0.5;
+}
+
+.pill-link {
+  transition: opacity 200ms ease;
+}
+
+.pill-link:hover {
+  opacity: 0.5;
+}
+
+.pill-seed {
+  border-color: var(--seed-accent);
+  color: var(--seed-accent);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.dot-active {
+  background: var(--active-green);
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.dot-seed {
+  background: var(--seed-accent);
+  margin-left: 2px;
+}
+
+/* In work-item tags the Seed pill keeps ink text/border, only the dot is tinted:
+   Seed green in light mode, plain ink (white) in dark mode per the card spec */
+.work-tags .pill {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+[data-theme='dark'] .work-tags .dot-seed {
+  background: var(--ink);
+}
+
+/* Header */
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.role {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.bio {
+  margin-top: 32px;
+  max-width: 516px;
+  min-width: min(334px, 100%);
+}
+
+.bio p {
+  margin: 0;
+}
+
+.bio p + p {
+  margin-top: 15px; /* one blank line, as in the design */
+}
+
+/* Currently line */
+.currently-line {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.currently-text {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.link-arrow {
+  color: var(--ink);
+  flex: none;
+}
+
+/* Work */
+.work {
+  margin-top: 56px;
+}
+
+.work-header {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.work-header-items {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.work-header h2 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.work-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.work-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 366px);
+  justify-content: space-between;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Work-item cards */
+.work-item {
+  background: var(--card);
+  border-radius: 32px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition: background-color 200ms ease;
+}
+
+/* Bottom-row stagger from the design: items 9 and 12 sit 70px lower */
+.work-item-spaced {
+  margin-top: 70px;
+}
+
+/* Sits at the bottom of its row when its row-mate (the cookbook card) is taller */
+.work-item-bottom {
+  align-self: end;
+}
+
+/* Item 11 is a narrower 334px card, centered in its column */
+.work-item-narrow {
+  width: 334px;
+  padding-inline: 0;
+  justify-self: center;
+}
+
+.work-media {
+  position: relative;
+  width: 334px;
+  height: 264px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.media-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 100px;
+  height: 30px;
+}
+
+.work-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-media-portrait {
+  width: 264px;
+  height: 334px;
+}
+
+.work-media-square {
+  width: 334px;
+  height: 334px;
+}
+
+.work-media-portrait img {
+  height: 100%;
+  width: auto;
+}
+
+/* Static images that must never be clipped by the frame's corner radius:
+   contain-fit (locked proportions, fill until the first edge hits) */
+.work-media-fit {
+  border-radius: 0;
+  overflow: visible;
+}
+
+.work-media-fit img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.work-media-contain img {
+  width: 100%;
+  height: auto;
+}
+
+.work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Footer: fixed to the viewport bottom with an opaque fill */
+.footer {
+  position: fixed;
+  inset-block-end: 0;
+  inset-inline: 0;
+  z-index: 900;
+  background: var(--bg);
+  transition: background-color 200ms ease;
+}
+
+/* Footer content (and its top line) always matches the page content width:
+   772px on desktop, 366px on mobile */
+.footer-inner {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding: 16px 0 56px;
+  border-top: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.footer-email {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: opacity 200ms ease;
+}
+
+.footer-email:hover {
+  opacity: 0.5;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.footer-mail-icon {
+  width: 16.5px;
+  height: 13px;
+  color: var(--ink);
+  flex: none;
+}
+
+.footer-logo {
+  justify-self: center;
+  width: 102.4px;
+  height: 23.5px;
+  color: var(--ink);
+}
+
+.footer-location {
+  justify-self: end;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.footer-location-icon {
+  width: 66.4px;
+  height: 23.5px;
+  color: var(--ink);
+}
+
+/* Site loader: blank #F5F5F5 screen, dots fade in randomly, hold, ease away */
+#site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 500ms ease;
+}
+
+#site-loader svg {
+  width: 196px;
+  height: auto;
+  max-height: 70vh;
+}
+
+#site-loader path {
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+#site-loader.dots-in path {
+  opacity: 1;
+}
+
+#site-loader.done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.loading {
+  overflow: hidden;
+}
+
+/* Popup viewer (hover statics, centered on screen) */
+#popup-viewer,
+#popup-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: min(56vw, 620px);
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transform: translate(-50%, -50%) scale(0.97);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 1000;
+}
+
+#popup-viewer.visible,
+#popup-video.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Mobile: single 366px column below the 996px breakpoint */
+@media (max-width: 995.98px) {
+  .all-content {
+    max-width: 366px;
+    padding-inline: 0;
+  }
+
+  .work-grid {
+    grid-template-columns: 366px;
+    justify-content: center;
+  }
+
+  .work-item-spaced {
+    margin-top: 0;
+  }
+
+  .footer-inner {
+    max-width: 366px;
+    padding-inline: 0;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 16px;
+    padding-bottom: 56px;
+  }
+
+  .footer-email,
+  .footer-logo,
+  .footer-location {
+    justify-self: center;
+  }
+
+  #popup-viewer,
+  #popup-video {
+    display: none;
+  }
+}
+
+/* Very narrow screens (< 366px column + margins): shrink instead of clipping */
+@media (max-width: 373.98px) {
+  .all-content,
+  .footer-inner {
+    max-width: 100%;
+    padding-inline: 8px;
+  }
+
+  .work-grid {
+    grid-template-columns: minmax(0, 366px);
+  }
+
+  .work-item {
+    max-width: 100%;
+  }
+
+  .work-media {
+    max-width: 100%;
+  }
+}
