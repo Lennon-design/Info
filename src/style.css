@@ -526,7 +526,7 @@ body.loading {
     grid-template-columns: 1fr;
     justify-items: center;
     row-gap: 16px;
-    padding-bottom: 56px;
+    padding-bottom: calc((100vw - 366px) / 2);
   }
 
   .footer-email,
@@ -551,6 +551,10 @@ body.loading {
 
   .all-content {
     padding-top: 8px;
+  }
+
+  .footer-inner {
+    padding-bottom: 8px;
   }
 
   .page {
