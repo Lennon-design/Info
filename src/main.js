@@ -54,7 +54,7 @@ if (loader) {
   const dotsDone = new Promise((r) => setTimeout(r, SPREAD + 300));
   const videosReady = Promise.race([
     Promise.all(
-      [...document.querySelectorAll('video[src]')].map((v) =>
+      [...document.querySelectorAll('.work-media video')].map((v) =>
         v.readyState >= 3
           ? Promise.resolve()
           : new Promise((r) => {
@@ -122,11 +122,11 @@ window.addEventListener('load', () => {
 });
 
 // Centered static overlays on work-item hover (see /statics), keyed by the
-// card's data-popup value. PNG/mp4 exports are @2x (shown at half size);
-// SVGs are 1x vector (shown as-is). A `width` entry overrides the scale
-// rule with a fixed display width. Cards without an entry trigger nothing.
+// card's data-popup value. Each entry picks its own sizing: `scale` divides
+// the source's natural width (2 = half size), `width` forces a fixed display
+// width. Cards without an entry trigger nothing.
 const STATICS = {
-  2: { file: '2-static.svg', scale: 1 },
+  2: { file: '2-static.svg', scale: 2 },
   3: { file: '3-static.png', scale: 2 },
   'times-square': { file: 'times-square.mp4', width: 300, video: true },
   5: { file: '5-static.svg', scale: 1 },
