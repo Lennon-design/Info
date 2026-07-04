@@ -126,7 +126,7 @@ window.addEventListener('load', () => {
 // the source's natural width (2 = half size), `width` forces a fixed display
 // width. Cards without an entry trigger nothing.
 const STATICS = {
-  2: { file: '2-static.svg', scale: 2 },
+  2: { file: '2-static.svg', scale: 2, inline: true },
   3: { file: '3-static.png', scale: 2 },
   'times-square': { file: 'times-square.mp4', width: 300, video: true },
   5: { file: '5-static.svg', scale: 1 },
@@ -135,6 +135,7 @@ const STATICS = {
 
 const popupViewer = document.getElementById('popup-viewer');
 const popupVideo = document.getElementById('popup-video');
+const popupInline = document.getElementById('popup-inline');
 const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
 
 if (canHover.matches) {
@@ -152,15 +153,35 @@ if (canHover.matches) {
   const hidePopups = () => {
     popupViewer.classList.remove('visible');
     popupVideo.classList.remove('visible');
+    popupInline.classList.remove('visible');
     popupVideo.pause();
+  };
+
+  // Inline SVG popups keep their backdrop-filter working (it can't reach
+  // the page from inside an <img>). Fetched once, then reused.
+  const showInline = async (entry) => {
+    if (popupInline.dataset.file !== entry.file) {
+      const text = await fetch(`/statics/${entry.file}`).then((r) => r.text());
+      popupInline.innerHTML = text;
+      popupInline.dataset.file = entry.file;
+      const svg = popupInline.querySelector('svg');
+      popupInline.style.width = `${svg.getAttribute('width') / (entry.scale ?? 2)}px`;
+    }
+    popupInline.classList.add('visible');
   };
 
   document.querySelectorAll('.work-item[data-popup]').forEach((item) => {
     const entry = STATICS[item.dataset.popup];
     if (!entry) return;
+    let hovered = false;
     item.addEventListener('mouseenter', () => {
+      hovered = true;
       currentScale = entry.scale ?? 2;
-      if (entry.video) {
+      if (entry.inline) {
+        showInline(entry).then(() => {
+          if (!hovered) popupInline.classList.remove('visible');
+        });
+      } else if (entry.video) {
         popupVideo.style.width = entry.width ? `${entry.width}px` : '';
         if (!popupVideo.src.endsWith(entry.file)) {
           popupVideo.src = `/statics/${entry.file}`;
@@ -173,6 +194,9 @@ if (canHover.matches) {
         popupViewer.classList.add('visible');
       }
     });
-    item.addEventListener('mouseleave', hidePopups);
+    item.addEventListener('mouseleave', () => {
+      hovered = false;
+      hidePopups();
+    });
   });
 }

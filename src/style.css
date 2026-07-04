@@ -473,13 +473,14 @@ body.loading {
   overflow: hidden;
 }
 
-/* Popup viewer (hover statics, centered on screen) */
+/* Popup viewer (hover statics, centered on screen, capped at 300px wide) */
 #popup-viewer,
-#popup-video {
+#popup-video,
+#popup-inline {
   position: fixed;
   top: 50%;
   left: 50%;
-  max-width: min(56vw, 620px);
+  max-width: 300px;
   max-height: 78vh;
   width: auto;
   height: auto;
@@ -491,8 +492,17 @@ body.loading {
   z-index: 1000;
 }
 
+/* Inline-SVG popups (needed when the artwork uses backdrop blur,
+   which can't reach the page from inside an <img>) */
+#popup-inline svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 #popup-viewer.visible,
-#popup-video.visible {
+#popup-video.visible,
+#popup-inline.visible {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
@@ -535,7 +545,8 @@ body.loading {
   }
 
   #popup-viewer,
-  #popup-video {
+  #popup-video,
+  #popup-inline {
     display: none;
   }
 }
