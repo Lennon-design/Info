@@ -497,18 +497,17 @@ body.loading {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* Mobile: single 366px column below the 996px breakpoint.
-   Top/bottom padding matches the side centering gap so all four
-   viewport margins are equal. */
+/* Mobile: single 366px centered column below the 996px breakpoint,
+   fixed 24px padding from the top and bottom of the viewport. */
 @media (max-width: 995.98px) {
   .all-content {
     max-width: 366px;
     padding-inline: 0;
-    padding-top: calc((100vw - 366px) / 2);
+    padding-top: 24px;
   }
 
   .page {
-    padding-block-end: calc(var(--footer-height) + (100vw - 366px) / 2);
+    padding-block-end: calc(var(--footer-height) + 24px);
   }
 
   .work-grid {
@@ -526,7 +525,7 @@ body.loading {
     grid-template-columns: 1fr;
     justify-items: center;
     row-gap: 16px;
-    padding-bottom: calc((100vw - 366px) / 2);
+    padding-block: 16px;
   }
 
   .footer-email,
@@ -547,18 +546,6 @@ body.loading {
   .footer-inner {
     max-width: 100%;
     padding-inline: 8px;
-  }
-
-  .all-content {
-    padding-top: 8px;
-  }
-
-  .footer-inner {
-    padding-bottom: 8px;
-  }
-
-  .page {
-    padding-block-end: calc(var(--footer-height) + 8px);
   }
 
   .work-grid {
