@@ -157,12 +157,14 @@ if (canHover.matches) {
     popupVideo.pause();
   };
 
-  // Inline SVG popups keep their backdrop-filter working (it can't reach
-  // the page from inside an <img>). Fetched once, then reused.
+  // The badge popup renders inline (SVG art + an HTML .badge-blur circle)
+  // so its backdrop blur can reach the page; neither works from inside an
+  // <img>, and blur inside SVG foreignObject breaks in Safari.
+  // Fetched once, then reused.
   const showInline = async (entry) => {
     if (popupInline.dataset.file !== entry.file) {
       const text = await fetch(`/statics/${entry.file}`).then((r) => r.text());
-      popupInline.innerHTML = text;
+      popupInline.innerHTML = `<div class="badge-blur"></div>${text}`;
       popupInline.dataset.file = entry.file;
       const svg = popupInline.querySelector('svg');
       popupInline.style.width = `${svg.getAttribute('width') / (entry.scale ?? 2)}px`;
