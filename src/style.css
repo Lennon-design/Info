@@ -299,6 +299,24 @@ a {
   align-self: end;
 }
 
+/* Cards that link out: an invisible link stretched over the whole card
+   makes every part of it clickable; the card fades like other links */
+.work-item-clickable {
+  position: relative;
+  transition: opacity 200ms ease, background-color 200ms ease;
+}
+
+.work-item-clickable:hover {
+  opacity: 0.5;
+}
+
+.work-item-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
 /* Item 11 is a narrower 334px card, centered in its column */
 .work-item-narrow {
   width: 334px;

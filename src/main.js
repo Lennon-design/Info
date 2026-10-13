@@ -131,6 +131,7 @@ const STATICS = {
   'times-square': { file: 'times-square.mp4', width: 300, video: true },
   5: { file: '5-static.svg', scale: 1 },
   10: { file: '10-static.png', scale: 2 },
+  photobook: { file: 'photobook-static.png', scale: 2 },
 };
 
 const popupViewer = document.getElementById('popup-viewer');
