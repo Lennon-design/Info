@@ -375,7 +375,8 @@ a {
   backdrop-filter: blur(8px);
 }
 
-.work-media video {
+.work-media video,
+.work-media-fill img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -534,10 +535,9 @@ body.loading {
   width: auto;
   height: auto;
   object-fit: contain;
-  transform: translate(-50%, -50%) scale(0.97);
+  transform: translate(-50%, -50%);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms ease;
   z-index: 1000;
 }
 
@@ -554,7 +554,6 @@ body.loading {
 #popup-video.visible,
 #popup-inline.visible {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
 }
 
 /* Mobile: single 366px centered column below the 996px breakpoint,

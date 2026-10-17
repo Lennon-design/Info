@@ -141,21 +141,23 @@ const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
 
 if (canHover.matches) {
   let currentScale = 2;
+  let showToken = 0;
 
-  popupViewer.addEventListener('load', () => {
-    popupViewer.style.width = `${popupViewer.naturalWidth / currentScale}px`;
-  });
   popupVideo.addEventListener('loadedmetadata', () => {
     if (!popupVideo.style.width) {
       popupVideo.style.width = `${popupVideo.videoWidth / currentScale}px`;
     }
   });
 
+  // Popups appear instantly (no transition), so the video is rewound on
+  // hide: the next hover then starts on frame 0 instead of flashing the
+  // frame it stopped on.
   const hidePopups = () => {
     popupViewer.classList.remove('visible');
     popupVideo.classList.remove('visible');
     popupInline.classList.remove('visible');
     popupVideo.pause();
+    popupVideo.currentTime = 0;
   };
 
   // The badge popup renders inline (SVG art + an HTML .badge-blur circle)
@@ -189,12 +191,25 @@ if (canHover.matches) {
         if (!popupVideo.src.endsWith(entry.file)) {
           popupVideo.src = `/statics/${entry.file}`;
         }
-        popupVideo.currentTime = 0;
         popupVideo.play().catch(() => {});
         popupVideo.classList.add('visible');
       } else {
-        popupViewer.src = `/statics/${entry.file}`;
-        popupViewer.classList.add('visible');
+        // Decode in a detached Image first: decode() on the visible element
+        // can resolve against the image it's still showing, which flashed
+        // the previous popup. Once decoded, the swap below is synchronous.
+        const token = ++showToken;
+        const url = `/statics/${entry.file}`;
+        const img = new Image();
+        img.src = url;
+        img
+          .decode()
+          .catch(() => {})
+          .then(() => {
+            if (!hovered || token !== showToken) return;
+            popupViewer.src = url;
+            popupViewer.style.width = `${img.naturalWidth / currentScale}px`;
+            popupViewer.classList.add('visible');
+          });
       }
     });
     item.addEventListener('mouseleave', () => {
